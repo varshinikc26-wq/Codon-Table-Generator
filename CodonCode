@@ -293,3 +293,143 @@ def display_translation_result(
         print("None")
 
     print("=" * 70)
+
+def main():
+
+    print("\n")
+    print("=" * 70)
+    print("                 CODON TABLE GENERATOR")
+    print("=" * 70)
+
+    print(
+        "\nThis program translates DNA/RNA sequences using "
+        "the standard genetic code."
+    )
+
+    # --------------------------------------------------------
+    # Select sequence type
+    # --------------------------------------------------------
+
+    print("\nSelect sequence type:")
+    print("1. DNA")
+    print("2. RNA")
+
+    choice = input("\nEnter your choice (1 or 2): ").strip()
+
+    if choice == "1":
+
+        sequence_type = "DNA"
+        table = codon_table
+
+    elif choice == "2":
+
+        sequence_type = "RNA"
+        table = rna_codon_table
+
+    else:
+
+        print("\nERROR: Invalid choice.")
+        print("Please enter 1 for DNA or 2 for RNA.")
+
+        return
+
+    # --------------------------------------------------------
+    # Get sequence from user
+    # --------------------------------------------------------
+
+    sequence = input(
+        f"\nEnter your {sequence_type} sequence: "
+    ).strip().upper()
+
+    # --------------------------------------------------------
+    # Check empty input
+    # --------------------------------------------------------
+
+    if not sequence:
+
+        print("\nERROR: Sequence cannot be empty.")
+
+        return
+
+    # --------------------------------------------------------
+    # Validate sequence
+    # --------------------------------------------------------
+
+    if not validate_sequence(sequence, sequence_type):
+
+        print("\nERROR: Invalid sequence.")
+
+        if sequence_type == "DNA":
+
+            print(
+                "DNA can contain only the nucleotides "
+                "A, T, G and C."
+            )
+
+        else:
+
+            print(
+                "RNA can contain only the nucleotides "
+                "A, U, G and C."
+            )
+
+        return
+
+    # --------------------------------------------------------
+    # Check codon table
+    # --------------------------------------------------------
+
+    if sequence_type == "DNA":
+
+        print(
+            f"\nNumber of codons in the standard table: "
+            f"{len(codon_table)}"
+        )
+
+    else:
+
+        print(
+            f"\nNumber of codons in the standard RNA table: "
+            f"{len(rna_codon_table)}"
+        )
+
+    # --------------------------------------------------------
+    # Display complete codon table
+    # --------------------------------------------------------
+
+    display_codon_table(table, sequence_type)
+
+    # --------------------------------------------------------
+    # Divide sequence into codons
+    # --------------------------------------------------------
+
+    codons, incomplete = divide_into_codons(sequence)
+
+    # --------------------------------------------------------
+    # Translate codons
+    # --------------------------------------------------------
+
+    amino_acids = translate_codons(codons, table)
+
+    # --------------------------------------------------------
+    # Identify start and stop codons
+    # --------------------------------------------------------
+
+    start_codons, stop_codons = identify_start_stop_codons(
+        codons,
+        sequence_type
+    )
+
+    # --------------------------------------------------------
+    # Display final result
+    # --------------------------------------------------------
+
+    display_translation_result(
+        sequence,
+        codons,
+        amino_acids,
+        incomplete,
+        start_codons,
+        stop_codons,
+        sequence_type
+    )
