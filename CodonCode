@@ -207,3 +207,31 @@ def translate_codons(codons, table):
         amino_acids.append(amino_acid)
 
     return amino_acids
+
+def identify_start_stop_codons(codons, sequence_type):
+    """
+    Identifies start and stop codons.
+    """
+
+    if sequence_type == "DNA":
+
+        start_codon = "ATG"
+        stop_codons = ["TAA", "TAG", "TGA"]
+
+    else:
+
+        start_codon = "AUG"
+        stop_codons = ["UAA", "UAG", "UGA"]
+
+    start_codons_found = []
+    stop_codons_found = []
+
+    for codon in codons:
+
+        if codon == start_codon:
+            start_codons_found.append(codon)
+
+        if codon in stop_codons:
+            stop_codons_found.append(codon)
+
+    return start_codons_found, stop_codons_found
