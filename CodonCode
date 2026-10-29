@@ -235,3 +235,61 @@ def identify_start_stop_codons(codons, sequence_type):
             stop_codons_found.append(codon)
 
     return start_codons_found, stop_codons_found
+
+def display_translation_result(
+    sequence,
+    codons,
+    amino_acids,
+    incomplete,
+    start_codons,
+    stop_codons,
+    sequence_type
+):
+    """
+    Displays the final translation result.
+    """
+
+    print("\n")
+    print("=" * 70)
+    print("                 TRANSLATION RESULT")
+    print("=" * 70)
+
+    print(f"Sequence type : {sequence_type}")
+    print(f"Input sequence: {sequence}")
+
+    print("\nCodons:")
+    print(" - ".join(codons))
+
+    print("\nAmino acids:")
+    print(" - ".join(amino_acids))
+
+    print("\nStart codon(s):")
+
+    if start_codons:
+        print(" - ".join(start_codons))
+    else:
+        print("None")
+
+    print("\nStop codon(s):")
+
+    if stop_codons:
+        print(" - ".join(stop_codons))
+    else:
+        print("None")
+
+    if incomplete:
+
+        print("\nIncomplete codon:")
+        print(incomplete)
+
+        print(
+            "The incomplete codon was not translated "
+            "because it contains fewer than three nucleotides."
+        )
+
+    else:
+
+        print("\nIncomplete codon:")
+        print("None")
+
+    print("=" * 70)
