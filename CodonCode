@@ -150,3 +150,22 @@ def display_codon_table(table, sequence_type):
         print(f"{codon:<12}{amino_acid:<25}{codon_type:<15}")
 
     print("=" * 70)
+
+def validate_sequence(sequence, sequence_type):
+    """
+    Validates whether the sequence contains only valid
+    DNA or RNA nucleotides.
+    """
+
+    if sequence_type == "DNA":
+        valid_bases = "ATGC"
+
+    else:
+        valid_bases = "AUGC"
+
+    for base in sequence:
+
+        if base not in valid_bases:
+            return False
+
+    return True
