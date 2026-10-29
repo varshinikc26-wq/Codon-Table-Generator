@@ -169,3 +169,26 @@ def validate_sequence(sequence, sequence_type):
             return False
 
     return True
+
+def divide_into_codons(sequence):
+    """
+    Divides the sequence into groups of three nucleotides.
+
+    Returns:
+        codons      -> complete groups of three
+        incomplete  -> remaining nucleotides
+    """
+
+    codons = []
+
+    for i in range(0, len(sequence), 3):
+
+        codon = sequence[i:i + 3]
+
+        if len(codon) == 3:
+            codons.append(codon)
+
+        else:
+            return codons, codon
+
+    return codons, ""
