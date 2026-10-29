@@ -122,3 +122,31 @@ def create_rna_codon_table():
 
 
 rna_codon_table = create_rna_codon_table()
+
+def display_codon_table(table, sequence_type):
+    """
+    Displays the complete codon table.
+    """
+
+    print("\n")
+    print("=" * 70)
+    print(f"              STANDARD {sequence_type} CODON TABLE")
+    print("=" * 70)
+
+    print(f"{'Codon':<12}{'Amino Acid':<25}{'Type':<15}")
+    print("-" * 70)
+
+    for codon, amino_acid in table.items():
+
+        if codon in ["ATG", "AUG"]:
+            codon_type = "Start"
+
+        elif amino_acid == "Stop":
+            codon_type = "Stop"
+
+        else:
+            codon_type = "Normal"
+
+        print(f"{codon:<12}{amino_acid:<25}{codon_type:<15}")
+
+    print("=" * 70)
