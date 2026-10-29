@@ -433,3 +433,6 @@ def main():
         stop_codons,
         sequence_type
     )
+
+if _name_ == "_main_":
+    main()
