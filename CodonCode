@@ -192,3 +192,18 @@ def divide_into_codons(sequence):
             return codons, codon
 
     return codons, ""
+
+def translate_codons(codons, table):
+    """
+    Translates each codon into its corresponding amino acid.
+    """
+
+    amino_acids = []
+
+    for codon in codons:
+
+        amino_acid = table[codon]
+
+        amino_acids.append(amino_acid)
+
+    return amino_acids
