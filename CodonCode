@@ -306,9 +306,7 @@ def main():
         "the standard genetic code."
     )
 
-    # --------------------------------------------------------
     # Select sequence type
-    # --------------------------------------------------------
 
     print("\nSelect sequence type:")
     print("1. DNA")
@@ -333,17 +331,14 @@ def main():
 
         return
 
-    # --------------------------------------------------------
     # Get sequence from user
-    # --------------------------------------------------------
 
     sequence = input(
         f"\nEnter your {sequence_type} sequence: "
     ).strip().upper()
 
-    # --------------------------------------------------------
+
     # Check empty input
-    # --------------------------------------------------------
 
     if not sequence:
 
@@ -351,9 +346,7 @@ def main():
 
         return
 
-    # --------------------------------------------------------
     # Validate sequence
-    # --------------------------------------------------------
 
     if not validate_sequence(sequence, sequence_type):
 
@@ -375,9 +368,7 @@ def main():
 
         return
 
-    # --------------------------------------------------------
     # Check codon table
-    # --------------------------------------------------------
 
     if sequence_type == "DNA":
 
@@ -393,36 +384,26 @@ def main():
             f"{len(rna_codon_table)}"
         )
 
-    # --------------------------------------------------------
     # Display complete codon table
-    # --------------------------------------------------------
 
     display_codon_table(table, sequence_type)
 
-    # --------------------------------------------------------
     # Divide sequence into codons
-    # --------------------------------------------------------
 
     codons, incomplete = divide_into_codons(sequence)
 
-    # --------------------------------------------------------
     # Translate codons
-    # --------------------------------------------------------
 
     amino_acids = translate_codons(codons, table)
 
-    # --------------------------------------------------------
     # Identify start and stop codons
-    # --------------------------------------------------------
 
     start_codons, stop_codons = identify_start_stop_codons(
         codons,
         sequence_type
     )
 
-    # --------------------------------------------------------
     # Display final result
-    # --------------------------------------------------------
 
     display_translation_result(
         sequence,
@@ -434,5 +415,5 @@ def main():
         sequence_type
     )
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
