@@ -1,4 +1,5 @@
 Codon Table Generator
+Check my Codon Table Generator code https://github.com/varshinikc26-wq/Codon-Table-Generator
 Introduction
 The Codon Table Generator is a Python-based bioinformatics program that translates DNA and RNA sequences into their corresponding amino acids using the standard genetic code.
 It identifies start and stop codons, checks sequence validity, and handles incomplete codons.
