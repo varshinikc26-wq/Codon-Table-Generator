@@ -106,3 +106,19 @@ codon_table = {
     "TAG": "Stop",
     "TGA": "Stop"
 }
+def create_rna_codon_table():
+    """
+    Creates an RNA codon table by replacing T with U
+    in the DNA codon table.
+    """
+
+    rna_table = {}
+
+    for codon, amino_acid in codon_table.items():
+        rna_codon = codon.replace("T", "U")
+        rna_table[rna_codon] = amino_acid
+
+    return rna_table
+
+
+rna_codon_table = create_rna_codon_table()
