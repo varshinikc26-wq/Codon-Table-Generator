@@ -114,6 +114,22 @@ Online GitHub Repositories: They usually output short single-letter codes like M
 We output full amino acid names like Methionine - Alanine - Phenylalanine - Stop.
 #### Why:
 It directly fulfills the exact table and formatting requirements of the assignment.
+
+## Comparison with Other GitHub Codon Table Projects
+
+To check my codon table, I compared it with codon table implementations
+available online:
+
+1. **DNASequenceTranslator** (github.com/mansikath/DNASequenceTranslator)
+2. **Biopython standard genetic code** (Bio.Data.CodonTable, "Standard" table)
+
+**Result of comparison:** My codon table contains all 64 codons and follows the
+standard genetic code. The amino acid assigned to each codon matches the standard
+code used by the other implementations.
+The main difference is that my program is built for learning: it displays the
+full codon table, marks start and stop codons, and reports incomplete codons
+clearly. Biopython is a library meant for large-scale work, while my project
+is a standalone program for step-by-step translation.
 ​
 # Requirement 10:
 Pull / push this given project on your GitHub
