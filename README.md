@@ -1,6 +1,6 @@
 # Codon Table Generator
 ## Author: Varshini K C
-### Check my repositoy:
+### Check my repository:
 https://github.com/varshinikc26-wq/Codon-Table-Generator
 
 # Introduction:
@@ -79,7 +79,7 @@ Display the codon table and the translated amino acid sequence in table format
 
 # Requirement 9: Comparison
 ### 1. Data Structure
-Online GitHub Repositories (e.g., Biopython): They use complex object classes that split data into separate dictionaries for regular amino acids, start codons, and stop codons.
+Online GitHub Repositories (Biopython(https://biopython.org/docs/latest/)): They use complex object classes that split data into separate dictionaries for regular amino acids, start codons, and stop codons.
 #### My Project:
 use one simple flat dictionary (codon_table) that stores all 64 codons in a single place.
 #### Why:
@@ -125,7 +125,6 @@ available online:
 
 **Result of comparison:** My codon table contains all 64 codons and follows the
 standard genetic code. The amino acid assigned to each codon matches the standard
-code used by the other implementations.
 The main difference is that my program is built for learning: it displays the
 full codon table, marks start and stop codons, and reports incomplete codons
 clearly. Biopython is a library meant for large-scale work, while my project
